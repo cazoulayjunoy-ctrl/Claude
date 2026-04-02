@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poupéa — La Maison des Poupées</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Lato', sans-serif; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    :root {
+      --rose:    #F9A8D4;
+      --rose-d:  #EC4899;
+      --creme:   #FFF5F7;
+      --mauve:   #E879A3;
+      --or:      #FBBF24;
+    }
+
+    .gradient-hero {
+      background: linear-gradient(135deg, #fce7f3 0%, #fff0f6 40%, #fdf2f8 100%);
+    }
+    .card-hover {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(236,72,153,.18);
+    }
+    .badge-new {
+      background: linear-gradient(90deg, #ec4899, #f472b6);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #ec4899, #f9a8d4);
+      transition: opacity .2s, transform .2s;
+    }
+    .btn-primary:hover { opacity: .9; transform: scale(1.03); }
+
+    /* Floating hearts animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(-5deg); }
+      50% { transform: translateY(-12px) rotate(5deg); }
+    }
+    .float-1 { animation: float 3.5s ease-in-out infinite; }
+    .float-2 { animation: float 4.2s ease-in-out infinite 0.8s; }
+    .float-3 { animation: float 3.8s ease-in-out infinite 1.5s; }
+
+    /* Stars */
+    .star { color: #FBBF24; }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- ─── NAVBAR ─────────────────────────────────────────────── -->
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-pink-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <span class="text-3xl">🪆</span>
+        <span class="text-2xl font-bold text-pink-500" style="font-family:'Playfair Display',serif;">Poupéa</span>
+      </a>
+      <ul class="hidden md:flex gap-8 text-sm font-semibold text-gray-600">
+        <li><a href="#collection" class="hover:text-pink-500 transition">Collection</a></li>
+        <li><a href="#nouveautes" class="hover:text-pink-500 transition">Nouveautés</a></li>
+        <li><a href="#avis" class="hover:text-pink-500 transition">Avis</a></li>
+        <li><a href="#contact" class="hover:text-pink-500 transition">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <button class="text-pink-400 hover:text-pink-600 transition text-xl">🔍</button>
+        <button class="relative text-pink-400 hover:text-pink-600 transition text-xl">
+          🛒
+          <span class="absolute -top-1 -right-1 bg-pink-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">3</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ──────────────────────────────────────────────── -->
+  <section class="gradient-hero overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 py-20 flex flex-col md:flex-row items-center gap-12">
+
+      <!-- Text -->
+      <div class="flex-1 text-center md:text-left">
+        <span class="inline-block bg-pink-100 text-pink-600 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
+          ✨ Livraison offerte dès 49 €
+        </span>
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-800 leading-tight mb-6">
+          Le monde<br/>
+          <span class="text-pink-500">enchanté</span><br/>
+          des poupées
+        </h1>
+        <p class="text-lg text-gray-500 mb-8 max-w-md">
+          Découvrez notre collection unique de poupées artisanales, faites à la main avec amour pour éveiller l'imagination des enfants.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+          <a href="#collection" class="btn-primary text-white font-bold px-8 py-4 rounded-full shadow-lg">
+            Découvrir la collection
+          </a>
+          <a href="#nouveautes" class="bg-white border-2 border-pink-300 text-pink-500 font-bold px-8 py-4 rounded-full hover:bg-pink-50 transition">
+            Voir les nouveautés
+          </a>
+        </div>
+        <!-- Stats -->
+        <div class="flex gap-8 mt-10 justify-center md:justify-start text-center">
+          <div>
+            <div class="text-2xl font-bold text-pink-500">500+</div>
+            <div class="text-xs text-gray-400 uppercase tracking-wide">Modèles</div>
+          </div>
+          <div class="border-l border-pink-200"></div>
+          <div>
+            <div class="text-2xl font-bold text-pink-500">12k+</div>
+            <div class="text-xs text-gray-400 uppercase tracking-wide">Clients heureux</div>
+          </div>
+          <div class="border-l border-pink-200"></div>
+          <div>
+            <div class="text-2xl font-bold text-pink-500">4.9 ⭐</div>
+            <div class="text-xs text-gray-400 uppercase tracking-wide">Note moyenne</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Illustration -->
+      <div class="flex-1 flex justify-center relative">
+        <div class="relative w-72 h-72 md:w-96 md:h-96">
+          <!-- Background circle -->
+          <div class="absolute inset-0 rounded-full bg-pink-200/50 blur-2xl"></div>
+          <!-- Main doll emoji -->
+          <div class="absolute inset-0 flex items-center justify-center text-9xl md:text-[10rem] select-none">🪆</div>
+          <!-- Floating decorations -->
+          <div class="float-1 absolute top-4 right-8 text-4xl select-none">🌸</div>
+          <div class="float-2 absolute bottom-8 left-4 text-3xl select-none">💝</div>
+          <div class="float-3 absolute top-12 left-8 text-2xl select-none">⭐</div>
+          <div class="float-1 absolute bottom-4 right-12 text-3xl select-none">🎀</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CATÉGORIES ────────────────────────────────────────── -->
+  <section class="bg-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="#" class="group bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl p-6 text-center card-hover cursor-pointer">
+          <div class="text-4xl mb-3">👧</div>
+          <div class="font-bold text-gray-700 group-hover:text-pink-500 transition">Poupées classiques</div>
+          <div class="text-xs text-gray-400 mt-1">128 articles</div>
+        </a>
+        <a href="#" class="group bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 text-center card-hover cursor-pointer">
+          <div class="text-4xl mb-3">🧸</div>
+          <div class="font-bold text-gray-700 group-hover:text-purple-500 transition">Peluches douces</div>
+          <div class="text-xs text-gray-400 mt-1">87 articles</div>
+        </a>
+        <a href="#" class="group bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-6 text-center card-hover cursor-pointer">
+          <div class="text-4xl mb-3">🪆</div>
+          <div class="font-bold text-gray-700 group-hover:text-yellow-600 transition">Poupées russes</div>
+          <div class="text-xs text-gray-400 mt-1">45 articles</div>
+        </a>
+        <a href="#" class="group bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 text-center card-hover cursor-pointer">
+          <div class="text-4xl mb-3">🎎</div>
+          <div class="font-bold text-gray-700 group-hover:text-green-500 transition">Poupées du monde</div>
+          <div class="text-xs text-gray-400 mt-1">63 articles</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COLLECTION ────────────────────────────────────────── -->
+  <section id="collection" class="bg-pink-50/50 py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-pink-400 font-semibold text-sm uppercase tracking-widest">Notre sélection</span>
+        <h2 class="text-4xl font-bold text-gray-800 mt-2">Collection Phare</h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">Des poupées soigneusement choisies pour leur qualité, leur beauté et leur durabilité.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Product Card -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm card-hover">
+          <div class="relative bg-gradient-to-br from-pink-100 to-pink-200 h-52 flex items-center justify-center text-7xl">
+            👧
+            <span class="badge-new absolute top-3 left-3 text-white text-xs font-bold px-2 py-1 rounded-full">NOUVEAU</span>
+            <button class="absolute top-3 right-3 bg-white rounded-full w-8 h-8 flex items-center justify-center shadow hover:scale-110 transition">❤️</button>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800">Léa la Romantique</h3>
+            <div class="flex items-center gap-1 my-1">
+              <span class="star text-sm">★★★★★</span>
+              <span class="text-xs text-gray-400">(142)</span>
+            </div>
+            <div class="flex items-center justify-between mt-3">
+              <div>
+                <span class="text-xl font-bold text-pink-500">34,90 €</span>
+              </div>
+              <button class="btn-primary text-white text-sm font-bold px-4 py-2 rounded-full">+ Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm card-hover">
+          <div class="relative bg-gradient-to-br from-purple-100 to-purple-200 h-52 flex items-center justify-center text-7xl">
+            🧸
+            <span class="absolute top-3 left-3 bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded-full">BEST-SELLER</span>
+            <button class="absolute top-3 right-3 bg-white rounded-full w-8 h-8 flex items-center justify-center shadow hover:scale-110 transition">🤍</button>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800">Nounours Calin</h3>
+            <div class="flex items-center gap-1 my-1">
+              <span class="star text-sm">★★★★★</span>
+              <span class="text-xs text-gray-400">(289)</span>
+            </div>
+            <div class="flex items-center justify-between mt-3">
+              <div>
+                <span class="text-xl font-bold text-pink-500">24,90 €</span>
+              </div>
+              <button class="btn-primary text-white text-sm font-bold px-4 py-2 rounded-full">+ Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm card-hover">
+          <div class="relative bg-gradient-to-br from-yellow-100 to-orange-100 h-52 flex items-center justify-center text-7xl">
+            🪆
+            <button class="absolute top-3 right-3 bg-white rounded-full w-8 h-8 flex items-center justify-center shadow hover:scale-110 transition">🤍</button>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800">Matrioska Colorée</h3>
+            <div class="flex items-center gap-1 my-1">
+              <span class="star text-sm">★★★★</span><span class="text-yellow-400 text-sm">☆</span>
+              <span class="text-xs text-gray-400">(78)</span>
+            </div>
+            <div class="flex items-center justify-between mt-3">
+              <div>
+                <span class="text-xl font-bold text-pink-500">42,00 €</span>
+              </div>
+              <button class="btn-primary text-white text-sm font-bold px-4 py-2 rounded-full">+ Panier</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm card-hover">
+          <div class="relative bg-gradient-to-br from-green-100 to-teal-100 h-52 flex items-center justify-center text-7xl">
+            🎎
+            <span class="absolute top-3 left-3 bg-red-400 text-white text-xs font-bold px-2 py-1 rounded-full">-20%</span>
+            <button class="absolute top-3 right-3 bg-white rounded-full w-8 h-8 flex items-center justify-center shadow hover:scale-110 transition">🤍</button>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800">Geisha Élégante</h3>
+            <div class="flex items-center gap-1 my-1">
+              <span class="star text-sm">★★★★★</span>
+              <span class="text-xs text-gray-400">(55)</span>
+            </div>
+            <div class="flex items-center justify-between mt-3">
+              <div>
+                <span class="text-xl font-bold text-pink-500">39,90 €</span>
+                <span class="text-sm text-gray-400 line-through ml-1">49,90 €</span>
+              </div>
+              <button class="btn-primary text-white text-sm font-bold px-4 py-2 rounded-full">+ Panier</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="#" class="border-2 border-pink-400 text-pink-500 font-bold px-10 py-4 rounded-full hover:bg-pink-50 transition">
+          Voir toute la collection →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BANNIÈRE PROMO ─────────────────────────────────────── -->
+  <section id="nouveautes" class="bg-gradient-to-r from-pink-500 to-pink-400 py-16 text-white text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-5xl mb-4">🎀</div>
+      <h2 class="text-3xl font-bold mb-3">Offre spéciale printemps</h2>
+      <p class="text-pink-100 mb-6 text-lg">-15% sur toute la collection avec le code <strong class="bg-white/20 px-2 py-0.5 rounded">PRINTEMPS25</strong></p>
+      <a href="#collection" class="bg-white text-pink-500 font-bold px-10 py-4 rounded-full hover:bg-pink-50 transition shadow-lg">
+        J'en profite maintenant
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── AVANTAGES ─────────────────────────────────────────── -->
+  <section class="bg-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="p-6">
+          <div class="text-4xl mb-4">🚚</div>
+          <h3 class="text-xl font-bold mb-2">Livraison rapide</h3>
+          <p class="text-gray-500">Livraison offerte dès 49 € d'achat. Expédition sous 24h en France métropolitaine.</p>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl mb-4">🛡️</div>
+          <h3 class="text-xl font-bold mb-2">Produits certifiés</h3>
+          <p class="text-gray-500">Toutes nos poupées sont conformes aux normes CE et fabriquées avec des matériaux sûrs pour les enfants.</p>
+        </div>
+        <div class="p-6">
+          <div class="text-4xl mb-4">↩️</div>
+          <h3 class="text-xl font-bold mb-2">Retours gratuits</h3>
+          <p class="text-gray-500">30 jours pour changer d'avis. Retours gratuits et remboursement sous 5 jours ouvrés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── AVIS ──────────────────────────────────────────────── -->
+  <section id="avis" class="bg-pink-50/50 py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-pink-400 font-semibold text-sm uppercase tracking-widest">Témoignages</span>
+        <h2 class="text-4xl font-bold text-gray-800 mt-2">Ce que disent nos clients</h2>
+        <div class="flex items-center justify-center gap-2 mt-3">
+          <span class="star text-2xl">★★★★★</span>
+          <span class="text-gray-600 font-bold text-xl">4.9/5</span>
+          <span class="text-gray-400">— 12 438 avis vérifiés</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-pink-200 flex items-center justify-center text-xl">👩</div>
+            <div>
+              <div class="font-bold text-gray-800">Sophie M.</div>
+              <div class="star text-sm">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-600 italic">"Ma fille adore sa poupée Léa ! La qualité est incroyable, les détails sont magnifiques. Je recommande vivement Poupéa !"</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-purple-200 flex items-center justify-center text-xl">👨</div>
+            <div>
+              <div class="font-bold text-gray-800">Thomas L.</div>
+              <div class="star text-sm">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-600 italic">"Cadeau parfait pour l'anniversaire de ma nièce. La livraison était ultra rapide et l'emballage cadeau superbe !"</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-yellow-200 flex items-center justify-center text-xl">👩</div>
+            <div>
+              <div class="font-bold text-gray-800">Marie-Claire B.</div>
+              <div class="star text-sm">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-gray-600 italic">"Service client au top ! J'ai eu un souci avec ma commande et l'équipe l'a résolu en moins de 2h. Boutique au top !"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── NEWSLETTER ────────────────────────────────────────── -->
+  <section class="bg-white py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <div class="text-4xl mb-4">💌</div>
+      <h2 class="text-3xl font-bold text-gray-800 mb-3">Rejoignez la famille Poupéa</h2>
+      <p class="text-gray-500 mb-6">Recevez en avant-première nos nouveautés et offres exclusives.</p>
+      <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input type="email" placeholder="votre@email.com"
+          class="flex-1 border-2 border-pink-200 rounded-full px-5 py-3 focus:outline-none focus:border-pink-400 text-gray-700" />
+        <button class="btn-primary text-white font-bold px-6 py-3 rounded-full shadow">
+          S'inscrire
+        </button>
+      </div>
+      <p class="text-xs text-gray-400 mt-3">Pas de spam, désinscription en 1 clic.</p>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer id="contact" class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-2xl">🪆</span>
+            <span class="text-xl font-bold text-white" style="font-family:'Playfair Display',serif;">Poupéa</span>
+          </div>
+          <p class="text-sm text-gray-400">La boutique en ligne spécialisée dans les poupées artisanales et jouets de qualité depuis 2012.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-3">Boutique</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-pink-400 transition">Toute la collection</a></li>
+            <li><a href="#" class="hover:text-pink-400 transition">Nouveautés</a></li>
+            <li><a href="#" class="hover:text-pink-400 transition">Promotions</a></li>
+            <li><a href="#" class="hover:text-pink-400 transition">Cadeaux</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-3">Service client</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-pink-400 transition">Livraison & retours</a></li>
+            <li><a href="#" class="hover:text-pink-400 transition">FAQ</a></li>
+            <li><a href="#" class="hover:text-pink-400 transition">Nous contacter</a></li>
+            <li><a href="#" class="hover:text-pink-400 transition">Suivi de commande</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-3">Contact</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>📧 bonjour@poupea.fr</li>
+            <li>📞 01 23 45 67 89</li>
+            <li>🕐 Lun-Ven 9h-18h</li>
+          </ul>
+          <div class="flex gap-3 mt-4">
+            <a href="#" class="text-2xl hover:scale-110 transition">📘</a>
+            <a href="#" class="text-2xl hover:scale-110 transition">📸</a>
+            <a href="#" class="text-2xl hover:scale-110 transition">🐦</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500 gap-3">
+        <span>© 2026 Poupéa. Tous droits réservés.</span>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-pink-400 transition">Mentions légales</a>
+          <a href="#" class="hover:text-pink-400 transition">CGV</a>
+          <a href="#" class="hover:text-pink-400 transition">Confidentialité</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <span>💳</span>
+          <span class="text-xs">Paiement 100% sécurisé</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
